@@ -5,4 +5,6 @@
     <string name="product_image_content_description">Product Image</string>
     <string name="ship">ship</string>
     <string name="or">or</string>
+    <string name="title_deal_item_detail">Deal Item Detail</string>
+    <string name="title_content_description">title</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.target.dealbrowserpoc.dealbrowser;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -40,22 +42,42 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
     }
 
     @Override
-    public void onBindViewHolder(DealItemViewHolder holder, int position) {
-        DealItem dealItem = getItem(position);
+    public void onBindViewHolder(final DealItemViewHolder holder, int position) {
+        final DealItem dealItem = getItem(position);
         if (dealItem != null) {
             holder.title.setText(dealItem.getTitle());
             holder.price.setText(dealItem.getOriginalPrice());
-            if (!TextUtils.isEmpty(dealItem.imageUrl)) {
+            if (!TextUtils.isEmpty(dealItem.getImageUrl())) {
                 // TODO: Trying to invalidate so we get new images since each DealItem from network has same URI.  Doesn't totally work - maybe try using my own OkHttp with no caching.
                 // This would not normally be a problem since uri would be unique.
                 Picasso
                         .with(context)
-                        .invalidate(dealItem.imageUrl);
+                        .invalidate(dealItem.getImageUrl());
                 Picasso
                         .with(context)
-                        .load(dealItem.imageUrl)
+                        .load(dealItem.getImageUrl())
                         .into(holder.productImage);
             }
+            holder.dealListItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (((MainActivity)context).isTwoPaneLayout()) {
+                        Bundle arguments = new Bundle();
+                        arguments.putParcelable(DealItemDetailFragment.ARG_DEAL_ITEM, dealItem);
+                        DealItemDetailFragment fragment = new DealItemDetailFragment();
+                        fragment.setArguments(arguments);
+                        ((MainActivity)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.deal_item_container, fragment)
+                                .commit();
+                    } else {
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, DealItemDetailActivity.class);
+                        intent.putExtra(DealItemDetailFragment.ARG_DEAL_ITEM, dealItem);
+
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 
@@ -83,6 +105,9 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
 
 
     public class DealItemViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.deal_list_item)
+        public ViewGroup dealListItem;
+
         @BindView(R.id.deal_list_item_image_view)
         public ImageView productImage;
 

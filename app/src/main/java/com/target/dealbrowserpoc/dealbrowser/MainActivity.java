@@ -2,6 +2,7 @@ package com.target.dealbrowserpoc.dealbrowser;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,9 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
+
+    private boolean twoPaneLayout = false;
 
     @BindView(R.id.item_list)
     RecyclerView itemListRecyclerView;
@@ -36,7 +39,6 @@ public class MainActivity extends Activity {
     @Inject
     Observable<DealResponse> dealItemObservable;
 
-    private List<DealItem> dealItemList = new ArrayList<>();
     private DealListItemAdapter dealListItemAdapter;
 
     private CompositeDisposable compositeDisposable;
@@ -55,6 +57,14 @@ public class MainActivity extends Activity {
         itemListRecyclerView.addItemDecoration(new DividerItemDecoration(this, android.support.v7.widget.DividerItemDecoration.VERTICAL));
 
         itemListRecyclerView.setHasFixedSize(true);
+
+        if (findViewById(R.id.deal_item_container) != null) {
+            // The detail container view will be present only in the
+            // large-screen layouts (res/values-w900dp).
+            // If this view is present, then the
+            // activity should be in two-pane mode.
+            twoPaneLayout = true;
+        }
 
         fetchDealData();
 
@@ -105,5 +115,9 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         compositeDisposable.clear();
+    }
+
+    public boolean isTwoPaneLayout() {
+        return twoPaneLayout;
     }
 }

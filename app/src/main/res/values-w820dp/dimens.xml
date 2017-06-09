@@ -1,4 +1,5 @@
 <resources>
     <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="deal_list_item_row_height">180dp</dimen>
     <dimen name="deal_list_item_image_size">160dp</dimen>
 </resources>

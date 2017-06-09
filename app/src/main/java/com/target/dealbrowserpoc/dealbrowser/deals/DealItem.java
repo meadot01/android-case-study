@@ -1,19 +1,22 @@
 package com.target.dealbrowserpoc.dealbrowser.deals;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class DealItem {
-    public int index;
-    public String id;
-    public String title;
-    public String description;
+public class DealItem implements Parcelable {
+    int index;
+    String id;
+    String title;
+    String description;
     @SerializedName("price")
-    public String originalPrice;
-    public String salePrice;
-    transient public int image;
+    String originalPrice;
+    String salePrice;
+    transient int image;
     @SerializedName("image")
-    public String imageUrl;
-    public String aisle;
+    String imageUrl;
+    String aisle;
 
     public DealItem(int index, String id, String title, String description, String originalPrice, String salePrice, int image, String imageUrl, String aisle) {
         this.index = index;
@@ -72,4 +75,45 @@ public class DealItem {
     public String toString() {
         return title;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.title);
+        dest.writeString(this.description);
+        dest.writeInt(this.index);
+        dest.writeString(this.originalPrice);
+        dest.writeString(this.salePrice);
+        dest.writeString(this.imageUrl);
+        dest.writeString(this.aisle);
+    }
+
+    protected DealItem(Parcel in) {
+        this.id = in.readString();
+        this.title = in.readString();
+        this.description = in.readString();
+        this.index = in.readInt();
+        this.originalPrice = in.readString();
+        this.salePrice = in.readString();
+        this.imageUrl = in.readString();
+        this.aisle = in.readString();
+    }
+
+    public static final Parcelable.Creator<DealItem> CREATOR = new Parcelable.Creator<DealItem>() {
+        @Override
+        public DealItem createFromParcel(Parcel source) {
+            return new DealItem(source);
+        }
+
+        @Override
+        public DealItem[] newArray(int size) {
+            return new DealItem[size];
+        }
+    };
 }
