@@ -1,0 +1,28 @@
+package com.target.dealbrowserpoc.dealbrowser;
+
+import android.app.Application;
+
+import com.target.dealbrowserpoc.dealbrowser.components.DaggerNetworkComponent;
+import com.target.dealbrowserpoc.dealbrowser.components.NetworkComponent;
+import com.target.dealbrowserpoc.dealbrowser.modules.NetworkModule;
+
+/**
+ * Created by T Meadows on 6/7/17.
+ */
+
+public class DealBrowserApp extends Application {
+
+    private NetworkComponent networkComponent;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        networkComponent = DaggerNetworkComponent.builder()
+                .networkModule(new NetworkModule())
+                .build();
+    }
+
+    public NetworkComponent getNetworkComponent() {
+        return networkComponent;
+    }
+}
