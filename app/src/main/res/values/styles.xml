@@ -6,4 +6,8 @@
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/actionbar_color</item>
     </style>
+    <style name="TitleText" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:typeface">sans</item>
+        <item name="android:textSize">20dp</item>
+    </style>
 </resources>

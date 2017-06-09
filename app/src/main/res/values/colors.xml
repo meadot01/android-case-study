@@ -3,6 +3,8 @@
     <color name="actionbar_color">#ffcc0000</color>
     <color name="white_color">#ffffffff</color>
     <color name="gray_color">#ff666666</color>
-    <color name="list_divider_color">#ff666666</color>
+    <color name="light_gray_color">#ffdcdcdc</color>
+    <color name="red_color">#ffcc0000</color>
+
 
 </resources>

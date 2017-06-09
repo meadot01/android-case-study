@@ -1,10 +1,7 @@
 package com.target.dealbrowserpoc.dealbrowser.modules;
 
-import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealResponse;
 import com.target.dealbrowserpoc.dealbrowser.remote.TargetDealsService;
-
-import java.util.List;
 
 import javax.inject.Singleton;
 
@@ -12,7 +9,6 @@ import dagger.Module;
 import dagger.Provides;
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -29,20 +25,18 @@ public class NetworkModule {
     @Provides
     @Singleton
     OkHttpClient provideOkHttpClient() {
-        OkHttpClient client = new OkHttpClient();
-        return client;
+        return new OkHttpClient();
     }
 
     @Provides
     @Singleton
     Retrofit provideRetrofit(OkHttpClient okHttpClient) {
-        Retrofit retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(TARGET_BASE_URL)
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
-        return retrofit;
     }
 
     @Provides

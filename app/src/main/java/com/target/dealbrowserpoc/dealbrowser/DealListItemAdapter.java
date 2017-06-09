@@ -18,7 +18,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapter.DealItemViewHolder> {
-    private LayoutInflater inflater;
     private List<DealItem> dealItems;
     private Context context;
 
@@ -30,7 +29,6 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
     protected DealListItemAdapter(Context ctx, List<DealItem> items) {
         super();
         context = ctx;
-        inflater = LayoutInflater.from(context);
         dealItems = items;
     }
 

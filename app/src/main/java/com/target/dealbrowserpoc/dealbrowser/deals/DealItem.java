@@ -1,10 +1,5 @@
 package com.target.dealbrowserpoc.dealbrowser.deals;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class DealItem {
@@ -32,10 +27,10 @@ public class DealItem {
         this.aisle = aisle;
     }
 
-    public Bitmap getProductImage(Context context){
-        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), image);
-        return bmp;
-    }
+//    public Bitmap getProductImage(Context context){
+//        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), image);
+//        return bmp;
+//    }
 
     public int getIndex() {
         return index;

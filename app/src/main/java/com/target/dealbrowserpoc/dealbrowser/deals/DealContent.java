@@ -8,9 +8,9 @@ import com.target.dealbrowserpoc.dealbrowser.R;
 
 public class DealContent {
 
-    public static List<DealItem> ITEMS = new ArrayList<DealItem>();
+    public static List<DealItem> ITEMS = new ArrayList<>();
 
-    public static Map<String, DealItem> ITEM_MAP = new HashMap<String, DealItem>();
+    public static Map<String, DealItem> ITEM_MAP = new HashMap<>();
 
     /* Hard-coded array of products. I need to get these from the service. */
     static {

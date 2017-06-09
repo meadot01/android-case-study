@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/deal_list_item"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="140dp"
     android:layout_alignParentTop="true"
     android:background="@color/white_color"
     android:orientation="horizontal"
@@ -20,34 +20,90 @@
             android:layout_width="@dimen/deal_list_item_image_size"
             android:layout_height="@dimen/deal_list_item_image_size"
             android:contentDescription="@string/product_image_content_description"
-            tools:src="@drawable/image_14741397"/>
+            tools:src="@drawable/image_14741397" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
+        android:layout_margin="@dimen/activity_horizontal_margin">
+
+
+        <LinearLayout
+            android:id="@+id/deal_list_item_details"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/deal_list_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:contentDescription="price"
+                android:gravity="center_vertical"
+                android:text="@style/TitleText"
+                android:textSize="18sp"
+                tools:text="$12.00" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"></FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="@string/ship" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="@string/or"
+                android:textColor="@color/light_gray_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0"
+                android:background="@drawable/light_grey_circle"
+                android:gravity="center_vertical"
+                android:padding="7dp"
+                android:text="B2"
+                android:textColor="@color/red_color"
+                tools:text="B2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/horizontal_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/deal_list_item_details"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/gray_color"></LinearLayout>
+
 
         <TextView
             android:id="@+id/deal_list_item_title"
+            style="@style/TitleText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:layout_height="match_parent"
+            android:layout_above="@id/horizontal_line"
+            android:layout_alignParentTop="true"
             android:contentDescription="title"
-            tools:text="Women's Linen Drapey Tank - Black/White'"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_color"></LinearLayout>
-        <TextView
-            android:id="@+id/deal_list_item_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:contentDescription="price"
-            tools:text="$12.00"/>
-    </LinearLayout>
+            tools:text="Women's Linen Drapey Tank - Black/White'" />
+
+    </RelativeLayout>
 
 </LinearLayout>
