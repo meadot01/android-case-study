@@ -3,12 +3,12 @@ List of tasks by priority
 * Add dagger2 for dependencies
 * Add ButterKnife
 * Connect to RemoteService for items - us RX for async
-  Convert to RecyclerView - use Picasso or other image handling for background url loading
-  Modify deal_list_item to match mock-up
-  Create detail Activity/Fragment - should match mock-up
+* Convert to RecyclerView - use Picasso or other image handling for background url loading
+* Modify deal_list_item to match mock-up
+* Create detail Activity/Fragment - should match mock-up
 
   *Optional*
-  Create wide layout to show list detail in main view for tablets
+* Create wide layout to show list detail in main view for tablets
   Move to a MVP architecture (or try new Android Architecture Contents ViewModel)
   Add some unit tests - app is pretty basic but should be able to come up with a few
   Transition animations?
