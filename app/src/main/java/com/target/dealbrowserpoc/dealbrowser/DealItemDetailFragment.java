@@ -1,13 +1,17 @@
 package com.target.dealbrowserpoc.dealbrowser;
 
-import android.app.Activity;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
 
 import butterknife.BindView;
@@ -39,8 +43,18 @@ public class DealItemDetailFragment extends Fragment {
     public DealItemDetailFragment() {
     }
 
-    @BindView(R.id.item_detail_item_name)
+    @BindView(R.id.deal_item_title_text)
     TextView itemName;
+    @BindView(R.id.deal_item_price_text)
+    TextView salePriceText;
+    @BindView(R.id.deal_item_orig_price_text)
+    TextView originalPriceText;
+    @BindView(R.id.deal_item_orig_price_label)
+    TextView originalPriceLabel;
+    @BindView(R.id.deal_item_description)
+    TextView itemDescription;
+    @BindView(R.id.deal_item_image)
+    ImageView itemImage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,6 +83,25 @@ public class DealItemDetailFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         if (dealItem != null) {
             itemName.setText(dealItem.getTitle());
+            if(TextUtils.isEmpty(dealItem.getSalePrice())) {
+                originalPriceText.setVisibility(View.INVISIBLE);
+                originalPriceLabel.setVisibility(View.INVISIBLE);
+                salePriceText.setText(dealItem.getOriginalPrice());
+            } else {
+                originalPriceText.setVisibility(View.VISIBLE);
+                originalPriceLabel.setVisibility(View.INVISIBLE);
+                salePriceText.setText(dealItem.getSalePrice());
+                originalPriceText.setText(dealItem.getOriginalPrice());
+                originalPriceText.setPaintFlags(originalPriceText.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            }
+//            Typeface tf = Typeface.createFromAsset(getAssets(),
+//                    "fonts/DroidSansFallback.ttf");
+//            TextView tv = (TextView) findViewById(R.id.CustomFontText);
+            //tv.setTypeface(tf);
+            itemDescription.setText(dealItem.getDescription());
+            Picasso.with(getActivity())
+                    .load(dealItem.getImageUrl())
+                    .into(itemImage);
         }
 
 

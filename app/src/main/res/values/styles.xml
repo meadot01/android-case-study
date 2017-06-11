@@ -8,7 +8,25 @@
     </style>
     <style name="TitleText" parent="TextAppearance.AppCompat.Headline">
         <item name="android:typeface">sans</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
+<!--        <item name="android:fontFamily">sans-serif-thin</item> -->
         <item name="android:textColor">@color/gray_color</item>
+    </style>
+
+    <style name="OriginalPriceText" parent="TitleText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/medium_gray_color</item>
+    </style>
+
+    <style name="PriceText" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/red_color</item>
+    </style>
+
+    <style name="BodyText" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 </resources>
