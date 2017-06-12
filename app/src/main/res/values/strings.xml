@@ -12,4 +12,6 @@
     <string name="add_to_list">add to list</string>
     <string name="item_image_description">Item Image</string>
     <string name="price">price</string>
+    <string name="added_to_list">%1$s added to List</string>
+    <string name="added_to_cart">%1$s added to Cart</string>
 </resources>
