@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.target.dealbrowserpoc.dealbrowser.MVP.MVPFragment;
 import com.target.dealbrowserpoc.dealbrowser.deallist.MainActivity;
 import com.target.dealbrowserpoc.dealbrowser.R;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
@@ -32,7 +33,7 @@ import butterknife.ButterKnife;
  * on handsets.
  */
 
-public class DealItemDetailFragment extends Fragment implements DealItemDetailInterface.View {
+public class DealItemDetailFragment extends MVPFragment<DealItemDetailInterface.Presenter> implements DealItemDetailInterface.View {
 
     /**
      * The fragment argument representing the item ID that this fragment
@@ -40,8 +41,6 @@ public class DealItemDetailFragment extends Fragment implements DealItemDetailIn
      */
     public static final String ARG_DEAL_ITEM = "deal_item";
 
-    @Inject
-    DealItemDetailInterface.Presenter dealItemDetailPresenter;
 
     /**
      * The deal itemcontent this fragment is presenting.
@@ -77,6 +76,7 @@ public class DealItemDetailFragment extends Fragment implements DealItemDetailIn
                 .dealItemDetailModule(new DealItemDetailModule(this))
                 .build()
                 .inject(this);
+        presenter.start();
 
         if (getArguments().containsKey(ARG_DEAL_ITEM)) {
             dealItem = getArguments().getParcelable(ARG_DEAL_ITEM);
@@ -126,4 +126,8 @@ public class DealItemDetailFragment extends Fragment implements DealItemDetailIn
         return rootView;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

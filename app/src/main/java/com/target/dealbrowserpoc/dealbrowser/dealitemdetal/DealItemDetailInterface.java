@@ -1,6 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.dealitemdetal;
 
-import com.target.dealbrowserpoc.dealbrowser.MVP;
+import com.target.dealbrowserpoc.dealbrowser.MVP.MVP;
 
 /**
  * MVP interfaces for Deal item detail fragment
