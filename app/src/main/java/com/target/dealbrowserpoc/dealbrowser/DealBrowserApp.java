@@ -2,9 +2,9 @@ package com.target.dealbrowserpoc.dealbrowser;
 
 import android.app.Application;
 
-import com.target.dealbrowserpoc.dealbrowser.components.DaggerNetworkComponent;
-import com.target.dealbrowserpoc.dealbrowser.components.NetworkComponent;
-import com.target.dealbrowserpoc.dealbrowser.modules.NetworkModule;
+import com.target.dealbrowserpoc.dealbrowser.injection.components.DaggerNetworkComponent;
+import com.target.dealbrowserpoc.dealbrowser.injection.components.NetworkComponent;
+import com.target.dealbrowserpoc.dealbrowser.injection.modules.NetworkModule;
 
 /**
  * Created by T Meadows on 6/7/17.

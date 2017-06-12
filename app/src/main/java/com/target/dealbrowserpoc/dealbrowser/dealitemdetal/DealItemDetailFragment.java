@@ -1,7 +1,6 @@
-package com.target.dealbrowserpoc.dealbrowser;
+package com.target.dealbrowserpoc.dealbrowser.dealitemdetal;
 
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -12,7 +11,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.target.dealbrowserpoc.dealbrowser.deallist.MainActivity;
+import com.target.dealbrowserpoc.dealbrowser.R;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
+import com.target.dealbrowserpoc.dealbrowser.injection.components.DaggerDealItemDetailComponent;
+import com.target.dealbrowserpoc.dealbrowser.injection.components.DaggerNetworkComponent;
+import com.target.dealbrowserpoc.dealbrowser.injection.components.DealItemDetailComponent;
+import com.target.dealbrowserpoc.dealbrowser.injection.modules.DealItemDetailModule;
+import com.target.dealbrowserpoc.dealbrowser.injection.modules.NetworkModule;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,15 +32,19 @@ import butterknife.ButterKnife;
  * on handsets.
  */
 
-public class DealItemDetailFragment extends Fragment {
+public class DealItemDetailFragment extends Fragment implements DealItemDetailInterface.View {
+
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
     public static final String ARG_DEAL_ITEM = "deal_item";
 
+    @Inject
+    DealItemDetailInterface.Presenter dealItemDetailPresenter;
+
     /**
-     * The dummy content this fragment is presenting.
+     * The deal itemcontent this fragment is presenting.
      */
     private DealItem dealItem;
 
@@ -59,6 +71,12 @@ public class DealItemDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        DaggerDealItemDetailComponent.builder()
+                .dealItemDetailModule(new DealItemDetailModule(this))
+                .build()
+                .inject(this);
 
         if (getArguments().containsKey(ARG_DEAL_ITEM)) {
             dealItem = getArguments().getParcelable(ARG_DEAL_ITEM);

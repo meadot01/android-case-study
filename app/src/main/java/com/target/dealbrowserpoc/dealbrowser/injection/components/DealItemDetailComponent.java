@@ -1,0 +1,18 @@
+package com.target.dealbrowserpoc.dealbrowser.injection.components;
+
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailFragment;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailInterface;
+import com.target.dealbrowserpoc.dealbrowser.injection.FragmentScope;
+import com.target.dealbrowserpoc.dealbrowser.injection.modules.DealItemDetailModule;
+
+import dagger.Component;
+
+/**
+ * Dagger Component for Deal item detail fragment
+ */
+
+@FragmentScope
+@Component(modules = DealItemDetailModule.class)
+public interface DealItemDetailComponent {
+    void inject(DealItemDetailFragment dealItemDetailFragment);
+}

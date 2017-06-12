@@ -1,6 +1,5 @@
-package com.target.dealbrowserpoc.dealbrowser;
+package com.target.dealbrowserpoc.dealbrowser.deallist;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,11 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
+import com.target.dealbrowserpoc.dealbrowser.DealBrowserApp;
+import com.target.dealbrowserpoc.dealbrowser.R;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealResponse;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 

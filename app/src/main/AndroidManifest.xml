@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".deallist.MainActivity"
             android:theme="@style/Theme.AppCompat"
             android:label="@string/app_name" >
             <intent-filter>
@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DealItemDetailActivity"
+            android:name=".dealitemdetal.DealItemDetailActivity"
             android:label="@string/title_deal_item_detail"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".deallist.MainActivity"
             android:theme="@style/Theme.AppCompat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".deallist.MainActivity" />
         </activity>
     </application>
 

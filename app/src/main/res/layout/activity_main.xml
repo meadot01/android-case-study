@@ -7,5 +7,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".MainActivity"
+    tools:context=".deallist.MainActivity"
     tools:listitem="@layout/deal_list_item" />

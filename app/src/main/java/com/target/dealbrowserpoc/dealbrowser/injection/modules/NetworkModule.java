@@ -1,4 +1,4 @@
-package com.target.dealbrowserpoc.dealbrowser.modules;
+package com.target.dealbrowserpoc.dealbrowser.injection.modules;
 
 import com.target.dealbrowserpoc.dealbrowser.deals.DealResponse;
 import com.target.dealbrowserpoc.dealbrowser.remote.TargetDealsService;

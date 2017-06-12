@@ -13,19 +13,17 @@ public class DealItem implements Parcelable {
     @SerializedName("price")
     String originalPrice;
     String salePrice;
-    transient int image;
     @SerializedName("image")
     String imageUrl;
     String aisle;
 
-    public DealItem(int index, String id, String title, String description, String originalPrice, String salePrice, int image, String imageUrl, String aisle) {
+    public DealItem(int index, String id, String title, String description, String originalPrice, String salePrice, String imageUrl, String aisle) {
         this.index = index;
         this.id = id;
         this.title = title;
         this.description = description;
         this.originalPrice = originalPrice;
         this.salePrice = salePrice;
-        this.image = image;
         this.imageUrl = imageUrl;
         this.aisle = aisle;
     }
@@ -57,10 +55,6 @@ public class DealItem implements Parcelable {
 
     public String getSalePrice() {
         return salePrice;
-    }
-
-    public int getImage() {
-        return image;
     }
 
     public String getImageUrl() {

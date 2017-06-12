@@ -5,28 +5,26 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
     android:baselineAligned="false"
     android:divider="?android:attr/dividerHorizontal"
     android:showDividers="middle"
-    tools:context=".MainActivity">
+    tools:context=".deallist.MainActivity">
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/item_list"
-        android:layout_width="400dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="5"
         app:layoutManager="LinearLayoutManager"
-        tools:context=".MainActivity"
+        tools:context=".deallist.MainActivity"
         tools:listitem="@layout/deal_list_item" />
 
     <FrameLayout
         android:id="@+id/deal_item_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="3" />
+        android:layout_weight="4" />
 
 
 

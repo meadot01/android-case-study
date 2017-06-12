@@ -33,7 +33,7 @@
         <LinearLayout
             android:id="@+id/deal_list_item_details"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="34dp"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
 
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
-                android:contentDescription="price"
+                android:contentDescription="@string/price"
                 android:gravity="center_vertical"
                 android:text="@style/TitleText"
                 android:textSize="18sp"
@@ -60,9 +60,11 @@
                 android:layout_weight="0"
                 android:gravity="center_vertical"
                 android:text="@string/ship"
-                android:textColor="@color/gray_color" />
+                android:textColor="@color/gray_color"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/or_label"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
@@ -72,25 +74,19 @@
                 android:text="@string/or"
                 android:textColor="@color/light_gray_color" />
 
-            <RelativeLayout
-                android:id="@+id/circle"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
+            <TextView
+                android:id="@+id/deal_list_item_location"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="0"
-                android:background="@drawable/light_grey_circle">
+                android:background="@drawable/light_grey_circle"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAllCaps="true"
+                android:textColor="@color/red_color"
+                android:textStyle="bold"
+                tools:text="B2" />
 
-                <TextView
-                    android:id="@+id/text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="B2"
-                    android:textColor="@color/red_color"
-                    tools:text="B2" />
-            </RelativeLayout>
             <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -111,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_above="@id/deal_list_item_details"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginTop="8dp"
             android:background="@color/light_gray_color"
             android:orientation="horizontal" />

@@ -1,4 +1,4 @@
-package com.target.dealbrowserpoc.dealbrowser;
+package com.target.dealbrowserpoc.dealbrowser.deallist;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import com.squareup.picasso.Picasso;
+import com.target.dealbrowserpoc.dealbrowser.R;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailActivity;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailFragment;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
 
 import butterknife.BindView;
@@ -78,6 +81,13 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
                     }
                 }
             });
+            if (TextUtils.isEmpty(dealItem.getAisle())) {
+                holder.location.setVisibility(View.INVISIBLE);
+                holder.orLabel.setVisibility(View.INVISIBLE);
+            } else {
+                holder.location.setVisibility(View.VISIBLE);
+                holder.location.setText(dealItem.getAisle());
+            }
         }
     }
 
@@ -116,6 +126,12 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
 
         @BindView(R.id.deal_list_item_price)
         public TextView price;
+
+        @BindView(R.id.deal_list_item_location)
+        public TextView location;
+
+        @BindView(R.id.or_label)
+        public TextView orLabel;
 
         public DealItemViewHolder(View itemView) {
             super(itemView);
