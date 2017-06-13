@@ -1,6 +1,5 @@
 package com.target.dealbrowserpoc.dealbrowser.injection.components;
 
-import com.target.dealbrowserpoc.dealbrowser.deallist.DealListActivity;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealResponse;
 import com.target.dealbrowserpoc.dealbrowser.injection.modules.NetworkModule;
 

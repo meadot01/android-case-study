@@ -1,12 +1,10 @@
 package com.target.dealbrowserpoc.dealbrowser.injection.components;
 
 import com.target.dealbrowserpoc.dealbrowser.deallist.DealListActivity;
-import com.target.dealbrowserpoc.dealbrowser.deals.DealResponse;
 import com.target.dealbrowserpoc.dealbrowser.injection.ActivityScope;
 import com.target.dealbrowserpoc.dealbrowser.injection.modules.DealListModule;
 
 import dagger.Component;
-import io.reactivex.Observable;
 
 /**
  * Dagger Component for Deal List

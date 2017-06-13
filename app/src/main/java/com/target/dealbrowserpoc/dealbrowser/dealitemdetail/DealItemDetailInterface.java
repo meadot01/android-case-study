@@ -16,14 +16,14 @@ public interface DealItemDetailInterface {
 //    }
 
     interface View extends MVP.View {
-        public void showToastMessage(int messageResId, Object... messageParameters);
-        public DealItem getDealItem();
+        void showToastMessage(int messageResId, Object... messageParameters);
+        DealItem getDealItem();
 
     }
 
     interface Presenter extends MVP.Presenter {
-        public void addToListPressed();
-        public void addToCartPressed();
+        void addToListPressed();
+        void addToCartPressed();
     }
 
 }

@@ -38,8 +38,6 @@ public class DealListActivity  extends MVPActivity<DealListInterface.Presenter> 
     RecyclerView itemListRecyclerView;
 
 
-    private DealListItemAdapter dealListItemAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +70,7 @@ public class DealListActivity  extends MVPActivity<DealListInterface.Presenter> 
 
     @Override
     public void loadItems(List<DealItem> dealItemList, ListType listType) {
-        dealListItemAdapter = new DealListItemAdapter(DealListActivity.this, dealItemList, listType);
+        DealListItemAdapter dealListItemAdapter = new DealListItemAdapter(DealListActivity.this, dealItemList, listType);
         itemListRecyclerView.setAdapter(dealListItemAdapter);
         itemListRecyclerView.setLayoutManager(listType == ListType.LIST ? linearLayoutManager : gridLayoutManager);
     }

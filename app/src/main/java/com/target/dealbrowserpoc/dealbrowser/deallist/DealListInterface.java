@@ -13,13 +13,13 @@ public class DealListInterface {
 
     public interface View extends MVP.View {
 
-        public void showLoadingDialog();
-        public void dismissLoadingDialog();
-        public void loadItems(List<DealItem> dealItemList, ListType listType);
+        void showLoadingDialog();
+        void dismissLoadingDialog();
+        void loadItems(List<DealItem> dealItemList, ListType listType);
     }
 
     public interface Presenter extends MVP.Presenter {
-        public void toggleListType();
+        void toggleListType();
     }
 
 }

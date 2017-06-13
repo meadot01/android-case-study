@@ -6,16 +6,16 @@ package com.target.dealbrowserpoc.dealbrowser.MVP;
  */
 
 public interface MVP {
-    public interface View {
+    interface View {
     }
 
 
-    public interface Presenter {
+    interface Presenter {
         void start();
         void destroy();
     }
 
-    public interface Model {
+    interface Model {
 
     }
 }
