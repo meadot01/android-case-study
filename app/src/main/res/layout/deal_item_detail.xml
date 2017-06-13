@@ -19,6 +19,7 @@
 
     <ImageView
         android:id="@+id/deal_item_image"
+        android:transitionName="@string/transition_name_deal_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
@@ -47,6 +48,7 @@
 
     <TextView
         android:id="@+id/deal_item_title_text"
+        android:transitionName="@string/transition_name_deal_title"
         style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,6 +60,7 @@
 
     <TextView
         android:id="@+id/deal_item_price_text"
+        android:transitionName="@string/transition_name_deal_price"
         style="@style/PriceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

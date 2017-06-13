@@ -2,7 +2,10 @@ package com.target.dealbrowserpoc.dealbrowser.deallist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -77,7 +80,16 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
                         Intent intent = new Intent(context, DealItemDetailActivity.class);
                         intent.putExtra(DealItemDetailFragment.ARG_DEAL_ITEM, dealItem);
 
-                        context.startActivity(intent);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            Pair<View, String> p1 = Pair.create((View)holder.productImage, context.getString(R.string.transition_name_deal_image));
+                            Pair<View, String> p2 = Pair.create((View)holder.title, context.getString(R.string.transition_name_deal_title));
+                            Pair<View, String> p3 = Pair.create((View)holder.price, context.getString(R.string.transition_name_deal_price));
+                            ActivityOptionsCompat options = ActivityOptionsCompat.
+                                    makeSceneTransitionAnimation((DealListActivity)context, p1, p2, p3);
+                            context.startActivity(intent, options.toBundle());
+                        } else {
+                            context.startActivity(intent);
+                        }
                     }
                 }
             });

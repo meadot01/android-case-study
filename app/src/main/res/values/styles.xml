@@ -1,6 +1,7 @@
 <resources>
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/TargetActionBar</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
     <style name="TargetActionBar"
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">

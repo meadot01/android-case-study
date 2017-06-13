@@ -14,4 +14,9 @@
     <string name="price">price</string>
     <string name="added_to_list">%1$s added to List</string>
     <string name="added_to_cart">%1$s added to Cart</string>
+
+    <string name="transition_name_deal_image" translatable="false">transition:LOCATIONDEALIMAGE</string>
+    <string name="transition_name_deal_title" translatable="false">transition:LOCATIONDEALTITLE</string>
+    <string name="transition_name_deal_price" translatable="false">transition:LOCATIONDEALPRICE</string>
+
 </resources>

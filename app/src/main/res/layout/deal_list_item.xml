@@ -16,6 +16,7 @@
 
         <ImageView
             android:id="@+id/deal_list_item_image_view"
+            android:transitionName="@string/transition_name_deal_image"
             android:layout_width="@dimen/deal_list_item_image_size"
             android:layout_height="@dimen/deal_list_item_image_size"
             android:layout_gravity="center_vertical"
@@ -39,6 +40,7 @@
 
             <TextView
                 android:id="@+id/deal_list_item_price"
+                android:transitionName="@string/transition_name_deal_price"
                 style="@style/TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -86,20 +88,6 @@
                 android:textColor="@color/red_color"
                 android:textStyle="bold"
                 tools:text="B2" />
-
-            <!--<TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0"
-                android:background="@drawable/light_grey_circle"
-                android:gravity="center_vertical"
-                android:padding="7dp"
-                android:text="B2"
-                android:textColor="@color/red_color"
-                tools:text="B2" />-->
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -115,6 +103,7 @@
 
         <TextView
             android:id="@+id/deal_list_item_title"
+            android:transitionName="@string/transition_name_deal_title"
             style="@style/TitleText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
