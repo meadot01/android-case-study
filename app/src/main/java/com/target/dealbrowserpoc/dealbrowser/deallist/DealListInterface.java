@@ -1,6 +1,9 @@
 package com.target.dealbrowserpoc.dealbrowser.deallist;
 
 import com.target.dealbrowserpoc.dealbrowser.MVP.MVP;
+import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
+
+import java.util.List;
 
 /**
  * MVP interfaces for Deal List
@@ -12,6 +15,7 @@ public class DealListInterface {
 
         public void showLoadingDialog();
         public void dismissLoadingDialog();
+        public void loadItems(List<DealItem> dealItemList);
     }
 
     public interface Presenter extends MVP.Presenter {
