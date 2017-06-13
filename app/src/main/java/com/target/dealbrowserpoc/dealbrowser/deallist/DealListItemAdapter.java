@@ -52,7 +52,11 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
         final DealItem dealItem = getItem(position);
         if (dealItem != null) {
             holder.title.setText(dealItem.getTitle());
-            holder.price.setText(dealItem.getOriginalPrice());
+            if (!TextUtils.isEmpty(dealItem.getSalePrice())) {
+                holder.price.setText(dealItem.getSalePrice());
+            } else {
+                holder.price.setText(dealItem.getOriginalPrice());
+            }
             if (!TextUtils.isEmpty(dealItem.getImageUrl())) {
                 // TODO: Trying to invalidate so we get new images since each DealItem from network has same URI.  Doesn't totally work - maybe try using my own OkHttp with no caching.
                 // This would not normally be a problem since uri would be unique.
@@ -81,6 +85,7 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
                         intent.putExtra(DealItemDetailFragment.ARG_DEAL_ITEM, dealItem);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            // If JellyBean or higher use transition animations
                             Pair<View, String> p1 = Pair.create((View)holder.productImage, context.getString(R.string.transition_name_deal_image));
                             Pair<View, String> p2 = Pair.create((View)holder.title, context.getString(R.string.transition_name_deal_title));
                             Pair<View, String> p3 = Pair.create((View)holder.price, context.getString(R.string.transition_name_deal_price));
