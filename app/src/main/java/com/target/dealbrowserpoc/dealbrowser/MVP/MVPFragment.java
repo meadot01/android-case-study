@@ -20,4 +20,8 @@ abstract public class MVPFragment<PresenterType extends MVP.Presenter> extends F
         super.onDestroy();
         presenter.destroy();
     }
+
+    protected PresenterType getPresenter() {
+        return presenter;
+    }
 }

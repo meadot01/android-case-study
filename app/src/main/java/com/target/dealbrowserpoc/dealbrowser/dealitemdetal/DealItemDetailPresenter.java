@@ -3,6 +3,8 @@ package com.target.dealbrowserpoc.dealbrowser.dealitemdetal;
 import android.util.Log;
 
 import com.target.dealbrowserpoc.dealbrowser.MVP.MVPPresenter;
+import com.target.dealbrowserpoc.dealbrowser.R;
+import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
 
 import javax.inject.Inject;
 
@@ -25,4 +27,25 @@ public class DealItemDetailPresenter extends MVPPresenter<DealItemDetailInterfac
         Log.v(TAG,"start()");
     }
 
+    @Override
+    public void addToListPressed() {
+        // Would normally call model to save to list
+        if (getView() != null) {
+            DealItem dealItem = getView().getDealItem();
+            if (dealItem != null) {
+                getView().showToastMessage(R.string.added_to_list, dealItem.getTitle());
+            }
+        }
+    }
+
+    @Override
+    public void addToCartPressed() {
+        // Would normally call model to save to cart
+        if (getView() != null) {
+            DealItem dealItem = getView().getDealItem();
+            if (dealItem != null) {
+                getView().showToastMessage(R.string.added_to_cart, dealItem.getTitle());
+            }
+        }
+    }
 }

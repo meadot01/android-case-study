@@ -2,33 +2,29 @@ package com.target.dealbrowserpoc.dealbrowser.dealitemdetal;
 
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.MVP.MVPFragment;
-import com.target.dealbrowserpoc.dealbrowser.deallist.MainActivity;
 import com.target.dealbrowserpoc.dealbrowser.R;
+import com.target.dealbrowserpoc.dealbrowser.deallist.DealListActivity;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
 import com.target.dealbrowserpoc.dealbrowser.injection.components.DaggerDealItemDetailComponent;
-import com.target.dealbrowserpoc.dealbrowser.injection.components.DaggerNetworkComponent;
-import com.target.dealbrowserpoc.dealbrowser.injection.components.DealItemDetailComponent;
 import com.target.dealbrowserpoc.dealbrowser.injection.modules.DealItemDetailModule;
-import com.target.dealbrowserpoc.dealbrowser.injection.modules.NetworkModule;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A fragment representing a single Deal item detail screen.
- * This fragment is either contained in a {@link MainActivity}
+ * This fragment is either contained in a {@link DealListActivity}
  * in two-pane mode (on tablets) or a {@link DealItemDetailActivity}
  * on handsets.
  */
@@ -76,21 +72,11 @@ public class DealItemDetailFragment extends MVPFragment<DealItemDetailInterface.
                 .dealItemDetailModule(new DealItemDetailModule(this))
                 .build()
                 .inject(this);
-        presenter.start();
+        getPresenter().start();
 
         if (getArguments().containsKey(ARG_DEAL_ITEM)) {
             dealItem = getArguments().getParcelable(ARG_DEAL_ITEM);
             this.getActivity().setTitle(dealItem.getTitle());
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
-            //mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
-
-//            Activity activity = this.getActivity();
-//            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
-//            if (appBarLayout != null) {
-//                appBarLayout.setTitle(mItem.content);
-//            }
         }
     }
 
@@ -112,10 +98,7 @@ public class DealItemDetailFragment extends MVPFragment<DealItemDetailInterface.
                 originalPriceText.setText(dealItem.getOriginalPrice());
                 originalPriceText.setPaintFlags(originalPriceText.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             }
-//            Typeface tf = Typeface.createFromAsset(getAssets(),
-//                    "fonts/DroidSansFallback.ttf");
-//            TextView tv = (TextView) findViewById(R.id.CustomFontText);
-            //tv.setTypeface(tf);
+
             itemDescription.setText(dealItem.getDescription());
             Picasso.with(getActivity())
                     .load(dealItem.getImageUrl())
@@ -126,8 +109,24 @@ public class DealItemDetailFragment extends MVPFragment<DealItemDetailInterface.
         return rootView;
     }
 
+    @OnClick(R.id.add_to_cart_button)
+    void onCartButtonClicked() {
+        getPresenter().addToCartPressed();
+    }
+
+    @OnClick(R.id.add_to_list_button)
+    void onCartListClicked() {
+        getPresenter().addToListPressed();
+    }
+
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void showToastMessage(int messageResId, Object... messageParameters) {
+        String messageString = getActivity().getString(messageResId, messageParameters);
+        Toast.makeText(getActivity(), messageString, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public DealItem getDealItem() {
+        return dealItem;
     }
 }

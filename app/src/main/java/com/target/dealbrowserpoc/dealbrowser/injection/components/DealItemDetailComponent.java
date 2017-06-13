@@ -8,7 +8,7 @@ import com.target.dealbrowserpoc.dealbrowser.injection.modules.DealItemDetailMod
 import dagger.Component;
 
 /**
- * Dagger Component for Deal item detail fragment
+ * Dagger Component for Deal item detail
  */
 
 @FragmentScope

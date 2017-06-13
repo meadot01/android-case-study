@@ -1,5 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.deallist;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -7,17 +8,16 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.List;
 
 import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.R;
 import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailActivity;
 import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailFragment;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,12 +64,12 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
             holder.dealListItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (((MainActivity)context).isTwoPaneLayout()) {
+                    if (((DealListActivity)context).isTwoPaneLayout()) {
                         Bundle arguments = new Bundle();
                         arguments.putParcelable(DealItemDetailFragment.ARG_DEAL_ITEM, dealItem);
                         DealItemDetailFragment fragment = new DealItemDetailFragment();
                         fragment.setArguments(arguments);
-                        ((MainActivity)context).getSupportFragmentManager().beginTransaction()
+                        ((DealListActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.deal_item_container, fragment)
                                 .commit();
                     } else {

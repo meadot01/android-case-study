@@ -30,4 +30,8 @@ import android.util.Log;
          Log.v(TAG, "destroy()");
          view = null;
      }
+
+     protected ViewType getView() {
+         return view;
+     }
  }

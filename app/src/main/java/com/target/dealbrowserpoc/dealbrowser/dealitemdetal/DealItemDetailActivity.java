@@ -6,14 +6,14 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.target.dealbrowserpoc.dealbrowser.deallist.MainActivity;
 import com.target.dealbrowserpoc.dealbrowser.R;
+import com.target.dealbrowserpoc.dealbrowser.deallist.DealListActivity;
 
 /**
  * An activity representing a single Deal Item detail screen. This
  * activity is only used narrow width devices. On tablet-size devices,
  * deal item details are presented side-by-side with a list of deal items
- * in a {@link MainActivity}.
+ * in a {@link DealListActivity}.
  */
 
 public class DealItemDetailActivity extends AppCompatActivity {
@@ -73,7 +73,7 @@ public class DealItemDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, DealListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
