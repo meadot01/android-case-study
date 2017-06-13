@@ -29,6 +29,7 @@ public class DealListPresenter extends MVPPresenter<DealListInterface.View> impl
     Observable<DealResponse> dealItemObservable;
     CompositeDisposable disposables = new CompositeDisposable();
     List<DealItem> dealItems;
+    ListType listViewStyle = ListType.LIST;
 
     @Inject
     public DealListPresenter(Observable<DealResponse> dealItemObservable, DealListInterface.View dealListView) {
@@ -53,6 +54,16 @@ public class DealListPresenter extends MVPPresenter<DealListInterface.View> impl
         if (disposables != null) {
             disposables.clear();
         }
+    }
+
+    @Override
+    public void toggleListType() {
+        if (listViewStyle == ListType.LIST) {
+            listViewStyle = ListType.GRID;
+        } else {
+            listViewStyle = ListType.LIST;
+        }
+        showDealItems();
     }
 
     private void fetchData() {
@@ -86,7 +97,7 @@ public class DealListPresenter extends MVPPresenter<DealListInterface.View> impl
 
     private void showDealItems() {
         if (dealItems != null) {
-            getView().loadItems(dealItems);
+            getView().loadItems(dealItems, listViewStyle);
         }
     }
 

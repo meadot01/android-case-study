@@ -1,4 +1,4 @@
-List of tasks by priority
+List of tasks by priority - Starred items are complete
 
 * Add dagger2 for dependencies
 * Add ButterKnife
@@ -13,5 +13,5 @@ List of tasks by priority
   Add some unit tests - app is pretty basic but should be able to come up with a few
     ** Having issues configuring JUnit - skipping for now.
 * Transition animations?
-  Try Grid toggle - think this is simple with RecyclerView - just change LayoutManager to GridLayoutManager
+* Try Grid toggle - think this is simple with RecyclerView - just change LayoutManager to GridLayoutManager
   Use data binding

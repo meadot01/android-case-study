@@ -4,9 +4,11 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.target.dealbrowserpoc.dealbrowser.DealBrowserApp;
@@ -27,6 +29,8 @@ public class DealListActivity  extends MVPActivity<DealListInterface.Presenter> 
     private static final String TAG="DealListActivity";
 
     private ProgressDialog loadingIndicator;
+    private RecyclerView.LayoutManager linearLayoutManager;
+    private RecyclerView.LayoutManager gridLayoutManager;
 
     private boolean twoPaneLayout = false;
 
@@ -40,12 +44,11 @@ public class DealListActivity  extends MVPActivity<DealListInterface.Presenter> 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //((DealBrowserApp)getApplication()).getNetworkComponent().inject(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
-
+        gridLayoutManager = new GridLayoutManager(this, 2);
+        linearLayoutManager = new LinearLayoutManager(this);
         itemListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemListRecyclerView.setItemAnimator(new DefaultItemAnimator());
         itemListRecyclerView.addItemDecoration(new DividerItemDecoration(this, android.support.v7.widget.DividerItemDecoration.VERTICAL));
@@ -65,28 +68,28 @@ public class DealListActivity  extends MVPActivity<DealListInterface.Presenter> 
                 .dealListModule(new DealListModule(this))
                 .build().inject(this);
         getPresenter().start();
-
-//        fetchDealData();
-
     }
 
     @Override
-    public void loadItems(List<DealItem> dealItemList) {
-        dealListItemAdapter = new DealListItemAdapter(DealListActivity.this, dealItemList);
+    public void loadItems(List<DealItem> dealItemList, ListType listType) {
+        dealListItemAdapter = new DealListItemAdapter(DealListActivity.this, dealItemList, listType);
         itemListRecyclerView.setAdapter(dealListItemAdapter);
+        itemListRecyclerView.setLayoutManager(listType == ListType.LIST ? linearLayoutManager : gridLayoutManager);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //Don't create the menu for now
-        return false;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
+        if (id == R.id.toggle_grid_list) {
+            getPresenter().toggleListType();
             return true;
         }
 
@@ -103,7 +106,7 @@ public class DealListActivity  extends MVPActivity<DealListInterface.Presenter> 
         dismissLoadingDialog();
         loadingIndicator = new ProgressDialog(this);
         loadingIndicator.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        loadingIndicator.setMessage("Loading. Please wait...");
+        loadingIndicator.setMessage(getString(R.string.loading_message));
         loadingIndicator.setIndeterminate(true);
         loadingIndicator.setCanceledOnTouchOutside(false);
         loadingIndicator.show();

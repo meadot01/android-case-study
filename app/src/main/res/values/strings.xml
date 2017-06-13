@@ -18,5 +18,7 @@
     <string name="transition_name_deal_image" translatable="false">transition:LOCATIONDEALIMAGE</string>
     <string name="transition_name_deal_title" translatable="false">transition:LOCATIONDEALTITLE</string>
     <string name="transition_name_deal_price" translatable="false">transition:LOCATIONDEALPRICE</string>
+    <string name="loading_message">Loading. Please wait...</string>
+    <string name="toggle_grid_list">Toggle Grid/List</string>
 
 </resources>

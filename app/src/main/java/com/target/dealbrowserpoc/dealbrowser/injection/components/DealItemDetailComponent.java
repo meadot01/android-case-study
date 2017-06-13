@@ -1,7 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.injection.components;
 
-import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailFragment;
-import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailInterface;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetail.DealItemDetailFragment;
 import com.target.dealbrowserpoc.dealbrowser.injection.FragmentScope;
 import com.target.dealbrowserpoc.dealbrowser.injection.modules.DealItemDetailModule;
 

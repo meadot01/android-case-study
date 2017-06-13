@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".dealitemdetal.DealItemDetailActivity"
+            android:name=".dealitemdetail.DealItemDetailActivity"
             android:label="@string/title_deal_item_detail"
             android:parentActivityName=".deallist.DealListActivity"
             android:theme="@style/Theme.AppCompat">

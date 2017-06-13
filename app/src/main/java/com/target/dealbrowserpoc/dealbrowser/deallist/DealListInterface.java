@@ -15,10 +15,11 @@ public class DealListInterface {
 
         public void showLoadingDialog();
         public void dismissLoadingDialog();
-        public void loadItems(List<DealItem> dealItemList);
+        public void loadItems(List<DealItem> dealItemList, ListType listType);
     }
 
     public interface Presenter extends MVP.Presenter {
+        public void toggleListType();
     }
 
 }

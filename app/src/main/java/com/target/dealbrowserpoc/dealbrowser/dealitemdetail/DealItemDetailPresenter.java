@@ -1,4 +1,4 @@
-package com.target.dealbrowserpoc.dealbrowser.dealitemdetal;
+package com.target.dealbrowserpoc.dealbrowser.dealitemdetail;
 
 import android.util.Log;
 

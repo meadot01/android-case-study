@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.R;
-import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailActivity;
-import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailFragment;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetail.DealItemDetailActivity;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetail.DealItemDetailFragment;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;
 
 import java.util.List;
@@ -28,22 +28,28 @@ import butterknife.ButterKnife;
 public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapter.DealItemViewHolder> {
     private List<DealItem> dealItems;
     private Context context;
+    private ListType listType;
 
 
-    public static DealListItemAdapter newInstance(Context context, List<DealItem> items) {
-        return new DealListItemAdapter(context, items);
-    }
-
-    protected DealListItemAdapter(Context ctx, List<DealItem> items) {
+    protected DealListItemAdapter(Context ctx, List<DealItem> items, ListType listType) {
         super();
         context = ctx;
         dealItems = items;
+        this.listType = listType;
     }
 
     @Override
     public DealItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.deal_list_item,parent, false);
+        View v;
+        if (listType == ListType.LIST) {
+            v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.deal_list_item,parent, false);
+
+        } else {
+            v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.deal_grid_item,parent, false);
+
+        }
         return new DealItemViewHolder(v);
     }
 

@@ -1,4 +1,4 @@
-package com.target.dealbrowserpoc.dealbrowser.dealitemdetal;
+package com.target.dealbrowserpoc.dealbrowser.dealitemdetail;
 
 import com.target.dealbrowserpoc.dealbrowser.MVP.MVP;
 import com.target.dealbrowserpoc.dealbrowser.deals.DealItem;

@@ -1,7 +1,7 @@
 package com.target.dealbrowserpoc.dealbrowser.injection.modules;
 
-import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailInterface;
-import com.target.dealbrowserpoc.dealbrowser.dealitemdetal.DealItemDetailPresenter;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetail.DealItemDetailInterface;
+import com.target.dealbrowserpoc.dealbrowser.dealitemdetail.DealItemDetailPresenter;
 import com.target.dealbrowserpoc.dealbrowser.injection.FragmentScope;
 
 import dagger.Module;
